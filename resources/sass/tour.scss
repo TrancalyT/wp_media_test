@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Monofett&display=swap');
+
+#tour-title {
+    background: linear-gradient(to left, #3498db 0% 35%, #44bd32 35% 62%, #ffce33 62% 80%, #e74c3c 80% 100%);
+
+    h1 {
+        margin-top: 7rem;
+        color: purple;
+        font-size: 90px;
+        font-family: 'Monofett', monospace;
+    }
+}
+
+#tour {
+    background : #643cc8;
+
+    .date {
+        color: white;
+    }
+
+    .location {
+        color: lime;
+    }
+
+    .country {
+        color: white;
+    }
+
+    li {
+        padding: 10px 0;
+    }
+
+    ul {
+        margin-bottom: 0;
+    }
+}

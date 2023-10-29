@@ -1,0 +1,155 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+
+// Variables
+@import "./variables";
+
+// Fonctions
+@import "./mixins";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Font-Awesome
+@import "../../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    background-image: url('/images/banner.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+// HEADER
+.sticky-header {
+    background-image: url('/images/banner.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 40rem;
+    position: fixed;        
+    top: 0;                
+    left: 0;
+    right: 0;
+    z-index: 1000;        
+    transition: background-color 0.3s ease; 
+    transition: height 0.5s;
+
+    nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem;
+    }
+}
+
+.shrink-header {
+    height: 6rem;
+    transition: height 0.5s;
+}
+
+.logo {
+    img {
+      max-height: 50px; 
+    }
+}
+  
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+    li {
+        margin-right: 20px;
+        a {
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 1px 1px $background;
+        }
+    }
+}
+
+// MAIN
+.content {
+    background-color: #fff;
+    overflow-x: clip;
+    margin-top: 40rem;
+    transition: margin-top 0.5s;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    .container {
+        font-size: x-large;
+    }
+}
+
+.shrink-content {
+    margin-top: 6rem;
+    transition: margin-top 0.5s;
+}
+
+.separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    height: 16rem;
+    background: #fff;
+}
+
+// FOOTER
+.site-footer {
+    display: flex;
+    justify-content: center;
+    background-color: #333333a6;
+    color: #fff;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    .social-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    a {
+        display: flex;
+        text-decoration: none;
+        font-size: 35px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        &.facebook {
+            color: $white;
+            background: #4267B2;
+        }
+
+        &.twitter {
+            color: $white;
+            background: #1DA1F2;
+        }
+
+        &.instagram {
+            color: $white;
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        }
+    }
+
+    p {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+@import './news.scss';
+@import './tour.scss';
+@import './albums.scss';

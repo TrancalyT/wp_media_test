@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+#news-title {
+    background-image: url('https://ak.picdn.net/shutterstock/videos/1922311/thumb/5.jpg');
+
+    h1 {
+        margin-top: 7rem;
+        font-family: "Monoton", cursive;
+        color: rgb(253, 228, 228);
+        font-size: 4rem;
+        text-shadow: 0px 0px 5px rgb(252, 198, 198), 0px 0px 10px rgb(253, 181, 181),
+          0px 0px 20px rgb(250, 145, 145), 0px 0px 30px rgb(250, 121, 121),
+          0px 0px 60px rgb(255, 255, 255);
+        animation-name: glow;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+}
+
+#news {
+    background: orange;
+
+    h1 {
+        color: white;
+    }
+}
+
+@keyframes glow {
+    50% {
+      text-shadow: 0px 0px 5px rgb(255, 255, 255), 0px 0px 10px rgb(255, 255, 255),
+        0px 0px 20px rgb(255, 255, 255), 0px 0px 40px rgb(255, 255, 255),
+        0px 0px 80px rgb(255, 255, 255);
+      color: white;
+    }
+  
+    100% {
+      text-shadow: 0px 0px 5px rgb(252, 198, 198), 0px 0px 10px rgb(253, 181, 181),
+        0px 0px 20px rgb(250, 145, 145), 0px 0px 30px rgb(250, 121, 121),
+        0px 0px 60px rgb(255, 255, 255);
+    }
+}
