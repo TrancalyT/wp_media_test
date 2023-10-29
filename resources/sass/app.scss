@@ -30,9 +30,9 @@ body {
     top: 0;                
     left: 0;
     right: 0;
-    z-index: 1000;        
+    z-index: 1000;    
     transition: background-color 0.3s ease; 
-    transition: height 0.5s;
+    transition: height 0.5s;    
 
     nav {
         display: flex;
@@ -44,7 +44,8 @@ body {
 
 .shrink-header {
     height: 6rem;
-    transition: height 0.5s;
+    border-bottom: 3px solid black;
+    transition: all 0.5s;
 }
 
 .logo {
@@ -100,6 +101,7 @@ body {
     top: 0;
     height: 16rem;
     background: #fff;
+    border-bottom: 3px solid black;
 }
 
 // FOOTER
@@ -147,6 +149,11 @@ body {
     p {
         text-align: center;
         margin-top: 20px;
+    }
+
+    #to-top {
+        cursor: pointer;
+        margin: 0;
     }
 }
 

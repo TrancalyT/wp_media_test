@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 #albums-title {
-    background-image: url('https://static.vecteezy.com/ti/vecteur-libre/p1/11050990-modele-sans-couture-de-flower-power-retro-des-annees-1990-avec-marguerite-pour-la-conception-de-papier-peint-impression-psychedelique-pouvoir-des-fleurs-motif-floral-retro-pop-art-tendance-conception-transparente-lumineuse-vectoriel.jpg');
+    background-image: url('/images/background_albums.jpg');
 
     h1 {
         color: aquamarine;
@@ -26,6 +26,6 @@
     }
 
     .card {
-        width: 25rem;
+        width: 18rem;
     }
 }

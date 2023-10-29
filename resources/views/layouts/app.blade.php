@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcels Lovers</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" href="{{ asset('images/icon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
 
@@ -22,12 +22,10 @@
         </nav>
     </header>
 
-    <!-- Contenu de la page -->
     <main class="content">
         @yield('main')
     </main>
 
-    <!-- Pied de page (Footer) -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="social-media">
@@ -36,6 +34,7 @@
                 <a class="instagram" href="https://www.instagram.com/parcelsmusic/" target="blank"><i class="fab fa-instagram"></i></a>
             </div>
             <p>&copy; 2023 Parcels Lovers</p>
+            <p class="text-center" id="to-top">Back to top &#8593;</p>
         </div>
     </footer>
 

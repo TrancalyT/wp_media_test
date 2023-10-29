@@ -1,0 +1,17 @@
+// Variables
+@import "./variables";
+
+// Fonctions
+@import "./mixins";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+.container-fluid {
+    margin: 20% auto;
+}
+
+#menu {
+    align-items: center;
+    gap: 1rem;
+}
