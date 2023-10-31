@@ -10,9 +10,34 @@
     <meta name="robots" content="noindex">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container mt-5" id="login">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Administration login</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="username">Username :</label>
+                                <input type="text" class="form-control" id="username" placeholder="Type your username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password :</label>
+                                <input type="password" class="form-control" id="password" placeholder="Type your password">
+                            </div>
+                            <button class="mt-2 btn btn-primary" id="loginButton">Login</button>
+                        </form>
+                        <div class="alert alert-danger mt-3" role="alert" id="errorCredential">
+                            Wrong credentials, please try again ...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5 mb-5" id="mainAdministration">
         <div class="row">
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <nav id="sidebar" class="p-3 col-md-3 col-lg-2 d-md-block bg-light sidebar">
                 <h3 class="text-center">ADMINISTRATION</h3>
                 <div class="position-sticky">
                     <ul class="nav flex-column" id="menu">
@@ -31,24 +56,182 @@
                                 Albums
                             </button>
                         </li>
+                        <li class="nav-item col-6">
+                            <button class="btn btn-danger w-100" id="logout">
+                                Logout
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="main">
-                <div class="collapse" id="news" data-bs-parent="#main">
+                <div class="collapse show" id="news" data-bs-parent="#main">
                     <div class="card card-body">
-                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        <h3>Add a news</h3>
+                        <form id="addNews">
+                            <div class="mb-3">
+                                <label for="titleNews" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="titleNews" placeholder="Type a title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="keywordsNews" class="form-label">Keywords</label>
+                                <input type="text" class="form-control" id="keywordsNews" placeholder="List of keywords (eg: #keywords, #thislist)">
+                            </div>
+                            <div class="mb-3">
+                                <label for="textNews" class="form-label">Text</label>
+                                <textarea class="form-control" id="textNews" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary mb-3" id="saveNews">Save news</button>
+                            </div>
+                        </form>
+
+                        <h3>Edit or delete a news </h3>
+                        <table class="mt-3 table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Keywords</th>
+                                    <th scope="col">Text</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($newsData as $news)
+                                    <tr id="news_{{$news['id']}}">
+                                        <td>{{$news['title']}}</td>
+                                        <td>{{$news['keywords']}}</td>
+                                        <td class="w-50">{{$news['text']}}</td>
+                                        <td>
+                                            {{-- <button class="btn btn-success edit"><i class="fa-solid fa-pen-to-square"></i></button> --}}
+                                            <button class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4">Empty news, please add one</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="collapse" id="tour" data-bs-parent="#main">
                     <div class="card card-body">
-                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        <h3>Add a tour</h3>
+                        <form id="addTour">
+                            <div class="mb-3">
+                                <label for="dateTour" class="form-label">Date</label>
+                                <input type="text" class="form-control" id="dateTour" placeholder="01.01.2024">
+                            </div>
+                            <div class="mb-3">
+                                <label for="locationTour" class="form-label">Location</label>
+                                <input type="text" class="form-control" id="locationTour" placeholder="Type a location">
+                            </div>
+                            <div class="mb-3">
+                                <label for="countryTour" class="form-label">Country</label>
+                                <input type="text" class="form-control" id="countryTour" placeholder="Type a country">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ticketTour" class="form-label">Ticketing</label>
+                                <input type="text" class="form-control" id="ticketTour" placeholder="Type a ticketing link">
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary mb-3" id="saveTour">Save tour</button>
+                            </div>
+                        </form>
+
+                        <h3>Edit or delete a tour </h3>
+                        <table class="mt-3 table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">Ticketing</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($tourData as $tour)
+                                    <tr id="tour_{{$tour['id']}}">
+                                        <td>{{$tour['date']}}</td>
+                                        <td>{{$tour['location']}}</td>
+                                        <td>{{$tour['country']}}</td>
+                                        <td>{{$tour['ticket']}}</td>
+                                        <td>
+                                            {{-- <button class="btn btn-success edit"><i class="fa-solid fa-pen-to-square"></i></button> --}}
+                                            <button class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4">Empty tour, please add one</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="collapse" id="albums" data-bs-parent="#main">
                     <div class="card card-body">
-                      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                        <h3>Add an album</h3>
+                        <form id="addAlbums">
+                            <div class="mb-3">
+                                <label for="albumLink" class="form-label">Link</label>
+                                <input type="text" class="form-control" id="albumLink" placeholder="Type a discogs link">
+                            </div>
+                            <div class="mb-3">
+                                <label for="albumCover" class="form-label">Cover</label>
+                                <input class="form-control" type="file" id="albumCover">
+                            </div>
+                            <div class="mb-3">
+                                <label for="albumYear" class="form-label">Year (label)</label>
+                                <input type="text" class="form-control" id="albumYear" placeholder="Type a year (and label)">
+                            </div>
+                            <div class="mb-3">
+                                <label for="albumTitle" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="albumTitle" placeholder="Type a title">
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary mb-3" id="saveAlbum">Save album</button>
+                            </div>
+                        </form>
+
+                        <h3>Edit or delete an album </h3>
+                        <table class="mt-3 table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Link</th>
+                                    <th scope="col">Cover</th>
+                                    <th scope="col">Year (label)</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($albumsData as $album)
+                                    <tr id="album_{{$album['id']}}">
+                                        <td>{{$album['link']}}</td>
+                                        <td class="w-25">
+                                            @php $path = 'images/albums/' . $album['cover']; @endphp
+                                            <img class="w-25" src="{{ asset($path) }}" alt="{{$album['title']}}">
+                                        </td>
+                                        <td>{{$album['year']}}</td>
+                                        <td>{{$album['title']}}</td>
+                                        <td>
+                                            {{-- <button class="btn btn-success edit"><i class="fa-solid fa-pen-to-square"></i></button> --}}
+                                            <button class="btn btn-danger delete"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4">Empty album, please add one</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </main>
