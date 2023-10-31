@@ -26,6 +26,9 @@
                                 <input type="password" class="form-control" id="password" placeholder="Type your password">
                             </div>
                             <button class="mt-2 btn btn-primary" id="loginButton">Login</button>
+                            <button class="ms-2 mt-2 btn btn-success">
+                                <a href="{{ route('main') }}" class="text-white" style="text-decoration: none;">Back to site</a>
+                            </button>
                         </form>
                         <div class="alert alert-danger mt-3" role="alert" id="errorCredential">
                             Wrong credentials, please try again ...
@@ -54,6 +57,11 @@
                         <li class="nav-item col-6">
                             <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#albums" aria-expanded="false">
                                 Albums
+                            </button>
+                        </li>
+                        <li class="nav-item col-6">
+                            <button class="btn btn-success w-100">
+                                <a href="{{ route('main') }}" class="text-white" style="text-decoration: none;">Back to site</a>
                             </button>
                         </li>
                         <li class="nav-item col-6">

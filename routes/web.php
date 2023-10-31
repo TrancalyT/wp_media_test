@@ -19,7 +19,7 @@ use App\Http\Controllers\TourController;
 */
 
 // View (get)
-Route::get('/', [MainController::class, 'index']);
+Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/admin', [AdminController::class, 'index']);
 
 // Post
