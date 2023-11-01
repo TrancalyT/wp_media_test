@@ -23,8 +23,14 @@ class AdminController extends Controller
         $albumsData = $albumsController->index();
 
         $lastActiveCrawl = Crawls::latest('id')->first();
-        $hyperlinks = Hyperlinks::where('crawl_id', $lastActiveCrawl->id)->get();
-        $crawlErros = CrawlErrors::where('crawl_id', $lastActiveCrawl->id)->get();
+
+        $hyperlinks = [];
+        $crawlErrors = [];
+        
+        if ($lastActiveCrawl) {
+            $hyperlinks = Hyperlinks::where('crawl_id', $lastActiveCrawl->id)->get();
+            $crawlErros = CrawlErrors::where('crawl_id', $lastActiveCrawl->id)->get();
+        }
 
         return view('admin', compact('newsData', 'tourData', 'albumsData', 'lastActiveCrawl', 'hyperlinks', 'crawlErros'));
     }
