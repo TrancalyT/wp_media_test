@@ -19,6 +19,7 @@ class RunAllSeeders extends Command
         $this->call('db:seed', ['--class' => 'NewsSeeder']);
         $this->call('db:seed', ['--class' => 'TourSeeder']);
         $this->call('db:seed', ['--class' => 'AlbumsSeeder']);
+        $this->call('db:seed', ['--class' => 'StatusSeeder']);
 
         $this->info('All seeders have been run.');
     }

@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\Crawler\Crawler;
+use App\Http\Crawler\MainCrawlObserver;
+use App\Models\Crawls;
+use Spatie\Crawler\CrawlProfiles\CrawlInternalUrls;
+
 class AdminController extends Controller 
 {   
     public function index () 
@@ -15,7 +20,27 @@ class AdminController extends Controller
         $albumsController = new AlbumsController();
         $albumsData = $albumsController->index();
 
-        return view('pages.admin', compact('newsData', 'tourData', 'albumsData'));
+        return view('admin', compact('newsData', 'tourData', 'albumsData'));
     }
 
+    public function crawl()
+    {
+        $url = sprintf('http://localhost/%s/public/index.php', env('APP_NAME'));
+
+        // Turn last crawl to inactive status (1 = ACTIVE / 2 = INACTIVE)
+        $lastActiveCrawl = Crawls::latest('id')->first();
+
+        if ($lastActiveCrawl) {
+            $lastActiveCrawl->update(['status_id' => 2]);
+        }
+
+        // Create a new crawl in database
+        $crawl = Crawls::create();
+        $crawlId = $crawl->id;
+
+        Crawler::create()
+        ->setCrawlObserver(new MainCrawlObserver($crawlId))
+        ->setCrawlProfile(new CrawlInternalUrls($url))
+        ->startCrawling($url);
+    }
 }

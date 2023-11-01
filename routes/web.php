@@ -37,3 +37,6 @@ Route::post('/add/album', [AlbumsController::class, 'store']);
 Route::delete('/delete/news/{news}', [NewsController::class, 'destroy']);
 Route::delete('/delete/tour/{tour}', [TourController::class, 'destroy']);
 Route::delete('/delete/album/{album}', [AlbumsController::class, 'destroy']);
+
+// Crawl
+Route::get('/crawl', [AdminController::class, 'crawl']);
