@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlbumsController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\TourController;
 
 /*
@@ -26,7 +27,8 @@ Route::get('/contact', function() {
 Route::get('/videos', function() {
     return view('videos');
 })->name('videos');
-Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/sitemap', [SitemapController::class, 'index'])->name('sitemap');
 
 // Post
 Route::post('/add/news', [NewsController::class, 'store']);

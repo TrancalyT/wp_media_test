@@ -65,6 +65,11 @@
                             </button>
                         </li>
                         <li class="nav-item col-6">
+                            <button class="btn btn-primary w-100">
+                                <a href="{{ route('sitemap') }}" class="text-white" style="text-decoration: none;">To sitemap</a>
+                            </button>
+                        </li>
+                        <li class="nav-item col-6">
                             <button class="btn btn-success w-100">
                                 <a href="{{ route('main') }}" class="text-white" style="text-decoration: none;">Back to site</a>
                             </button>
