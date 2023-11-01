@@ -1,4 +1,5 @@
 import './bootstrap.js';
+const currentURL = window.location.href;
 
 // Scroll behaviour
 window.addEventListener('scroll', function() {
@@ -13,6 +14,23 @@ window.addEventListener('scroll', function() {
       content.classList.remove("shrink-content");
     }
 });
+
+// Style
+if (currentURL.includes("/contact")) {
+    var contactLink = document.getElementById('contactLink');
+
+    if (contactLink) {
+        contactLink.style.color = 'blueviolet';
+    }
+}
+
+if (currentURL.includes("/videos")) {
+  var videosLink = document.getElementById('videosLink');
+
+  if (videosLink) {
+    videosLink.style.color = 'blueviolet';
+  }
+}
 
 // Back to top
 document.getElementById('to-top').addEventListener('click', function() {

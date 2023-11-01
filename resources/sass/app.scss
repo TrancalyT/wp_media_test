@@ -104,6 +104,27 @@ body {
     border-bottom: 3px solid black;
 }
 
+// CONTACT
+#contact {
+    background-color: blueviolet;
+
+    h1, a {
+        color: lime;
+        text-decoration: none;
+    }
+}
+
+#videos {
+    background-color: lightsalmon;
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
 // FOOTER
 .site-footer {
     display: flex;

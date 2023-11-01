@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Administration login</div>
+                    <div class="card-header">Administration log in</div>
                     <div class="card-body">
                         <form>
                             <div class="form-group">
@@ -25,7 +25,7 @@
                                 <label for="password">Password :</label>
                                 <input type="password" class="form-control" id="password" placeholder="Type your password">
                             </div>
-                            <button class="mt-2 btn btn-primary" id="loginButton">Login</button>
+                            <button class="mt-2 btn btn-primary" id="loginButton">Log in</button>
                             <button class="ms-2 mt-2 btn btn-success">
                                 <a href="{{ route('main') }}" class="text-white" style="text-decoration: none;">Back to site</a>
                             </button>
@@ -66,7 +66,7 @@
                         </li>
                         <li class="nav-item col-6">
                             <button class="btn btn-danger w-100" id="logout">
-                                Logout
+                                Log out
                             </button>
                         </li>
                     </ul>

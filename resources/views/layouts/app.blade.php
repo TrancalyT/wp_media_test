@@ -12,18 +12,20 @@
     <header class="sticky-header">
         <nav>
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo de Parcels">
+                <img src="{{ asset('images/logo.png') }}" alt="Parcels logo">
             </div>
             <ul class="menu">
-                <li><a href="#news">News</a></li>
-                <li><a href="#tour">Tour</a></li>
-                <li><a href="#albums">Albums</a></li>
+                <li><a href="{{route('main')}}#news">News</a></li>
+                <li><a href="{{route('main')}}#tour">Tour</a></li>
+                <li><a href="{{route('main')}}#albums">Albums</a></li>
+                <li><a href="{{route('videos')}}" id="videosLink">Videos</a></li>
+                <li><a href="{{route('contact')}}" id="contactLink">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="content">
-        @yield('main')
+        @yield('content')
     </main>
 
     <footer class="site-footer">

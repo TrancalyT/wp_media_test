@@ -20,6 +20,12 @@ use App\Http\Controllers\TourController;
 
 // View (get)
 Route::get('/', [MainController::class, 'index'])->name('main');
+Route::get('/contact', function() {
+    return view('contact');
+})->name('contact');
+Route::get('/videos', function() {
+    return view('videos');
+})->name('videos');
 Route::get('/admin', [AdminController::class, 'index']);
 
 // Post
