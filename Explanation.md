@@ -35,7 +35,7 @@ Follow these steps to implement the project:
 # How it works ?
 
 Feel free to browse the site, the use of features is intuitive. The administration page can be found at the following URL: localhost/admin, here are your login details:
-    ```shell
+    ```
     USERNAME : admin
     PASSWORD : KTrhuTYv6Go3fw
     ```
