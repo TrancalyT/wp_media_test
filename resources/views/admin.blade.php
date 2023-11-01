@@ -258,7 +258,12 @@
     
                         <h5 class="mt-3">Last crawl</h5>
                         <div class="d-flex justify-content-between align-items-center">
-                            <p class="m-0">Last crawl at : {{$lastActiveCrawl['created_at']}}</p>
+                            @if ($lastActiveCrawl)
+                                <p class="m-0">Last crawl at : {{$lastActiveCrawl['created_at']}}</p>
+                            @else
+                                <p class="m-0">No crawl yet, please start one</p>
+                            @endif
+                            
                             <button class="btn btn-primary" id="startCrawl">Start a crawler</button>
                         </div>
                         
