@@ -1,53 +1,3 @@
-## How to implement it ?
-
-Your environment will need a web server such as Apache. If you don't have one, [**Laragon**](https://laragon.org/) can provide you with an easy-to-install, user-friendly one.
-
-Follow these steps to implement the project:
-
-1. Clone this project in your desired directory
-
-   ```shell
-    git clone <repository>
-    ```
-2. Switch to master branch
-
-    ```shell
-    git checkout master
-    ```
-3. Copy .env.example to .env and configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration, especially these ones :
-    ```shell
-    APP_NAME
-    DB_CONNECTION
-    DB_HOST
-    DB_PORT
-    DB_DATABASE
-    DB_USERNAME
-    DB_PASSWORD
-    ```
-
-4. In project directory execute these commands :
-
-    ```shell
-    composer install
-    npm install
-    npm run dev
-    php artisan migrate
-    php artisan db:seed:all
-    php artisan key:generate
-    ```
-5. You must boot the crontab for the automatic crawling scheduler to work (ie: on Linux) :
-    ```shell
-    crontab -e
-    ```
-6. Add these lines :
-    ```shell
-    * * * * * php <path_to_project_directory> schedule:run
-    ```
-7. Launch your local server : 
-    ```shell
-    php artisan serv
-    ```
-
 # Introduction
 
 First of all, I'd like to tell you about my relationship with this test. This is the 1st time I've been confronted with SEO, so I had to read up on the subject, how SEO works in the context of an application, how to apply it to development, what is a crawl, what is a sitemap ... 
@@ -100,6 +50,56 @@ I decided to use a library available on Laravel (spatie/crawler), concerning the
     - The admin can initiate a crawl manually by clicking a button or set it to run automatically at regular intervals (e.g., every hour).
 5. Display of Results:
 	- The solution displays the results of the crawl on an admin page. This can be presented in a structured format to provide a clear overview of the internal hyperlinks found.
+
+## How to implement it ?
+
+Your environment will need a web server such as Apache. If you don't have one, [**Laragon**](https://laragon.org/) can provide you with an easy-to-install, user-friendly one.
+
+Follow these steps to implement the project:
+
+1. Clone this project in your desired directory
+
+   ```shell
+    git clone <repository>
+    ```
+2. Switch to master branch
+
+    ```shell
+    git checkout master
+    ```
+3. Copy .env.example to .env and configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration, especially these ones :
+    ```shell
+    APP_NAME
+    DB_CONNECTION
+    DB_HOST
+    DB_PORT
+    DB_DATABASE
+    DB_USERNAME
+    DB_PASSWORD
+    ```
+
+4. In project directory execute these commands :
+
+    ```shell
+    composer install
+    npm install
+    npm run dev
+    php artisan migrate
+    php artisan db:seed:all
+    php artisan key:generate
+    ```
+5. You must boot the crontab for the automatic crawling scheduler to work (ie: on Linux) :
+    ```shell
+    crontab -e
+    ```
+6. Add these lines :
+    ```shell
+    * * * * * php <path_to_project_directory> schedule:run
+    ```
+7. Launch your local server : 
+    ```shell
+    php artisan serv
+    ```
 
 Happy surfing ;)
 
