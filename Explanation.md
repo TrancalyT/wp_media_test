@@ -14,7 +14,16 @@ Follow these steps to implement the project:
     ```shell
     git checkout master
     ```
-3. Configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration :
+3. Configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration, especially these ones :
+    ```shell
+    APP_NAME
+    DB_CONNECTION
+    DB_HOST
+    DB_PORT
+    DB_DATABASE
+    DB_USERNAME
+    DB_PASSWORD
+    ```
 
 4. In project directory execute these commands :
 
