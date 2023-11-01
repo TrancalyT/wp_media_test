@@ -26,13 +26,13 @@ class AdminController extends Controller
 
         $hyperlinks = [];
         $crawlErrors = [];
-        
+
         if ($lastActiveCrawl) {
             $hyperlinks = Hyperlinks::where('crawl_id', $lastActiveCrawl->id)->get();
-            $crawlErros = CrawlErrors::where('crawl_id', $lastActiveCrawl->id)->get();
+            $crawlErrors = CrawlErrors::where('crawl_id', $lastActiveCrawl->id)->get();
         }
 
-        return view('admin', compact('newsData', 'tourData', 'albumsData', 'lastActiveCrawl', 'hyperlinks', 'crawlErros'));
+        return view('admin', compact('newsData', 'tourData', 'albumsData', 'lastActiveCrawl', 'hyperlinks', 'crawlErrors'));
     }
 
     public function crawl()

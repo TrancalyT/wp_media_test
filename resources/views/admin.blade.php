@@ -291,7 +291,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($crawlErros as $error)
+                                @forelse ($crawlErrors as $error)
                                     <tr>
                                         <td>{{$error['error']}}</td>
                                     </tr>
