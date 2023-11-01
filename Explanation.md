@@ -1,5 +1,7 @@
 # How to implement it ?
 
+Your environment will need a web server such as Apache. If you don't have one, [**Laragon**](https://laragon.org/) can provide you with an easy-to-install, user-friendly one.
+
 Follow these steps to implement the project:
 
 1. Clone this project in your desired directory
@@ -36,6 +38,6 @@ Follow these steps to implement the project:
 
 Feel free to browse the site, the use of features is intuitive. The administration page can be found at the following URL: localhost/admin, here are your login details:
     ```
-    USERNAME : admin
-    PASSWORD : KTrhuTYv6Go3fw
+    USERNAME: admin
+    PASSWORD: KTrhuTYv6Go3fw
     ```
