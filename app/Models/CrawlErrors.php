@@ -11,6 +11,6 @@ class CrawlErrors extends Model
 
     public $timestamps = false;
 
-    protected $table = 'crawl_erros';
+    protected $table = 'crawl_errors';
     protected $fillable = ['crawl_id', 'error'];
 }

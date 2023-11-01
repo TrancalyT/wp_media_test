@@ -60,6 +60,11 @@
                             </button>
                         </li>
                         <li class="nav-item col-6">
+                            <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#crawl" aria-expanded="false">
+                                Crawl
+                            </button>
+                        </li>
+                        <li class="nav-item col-6">
                             <button class="btn btn-success w-100">
                                 <a href="{{ route('main') }}" class="text-white" style="text-decoration: none;">Back to site</a>
                             </button>
@@ -236,6 +241,58 @@
                                 @empty
                                     <tr>
                                         <td colspan="4">Empty album, please add one</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="collapse" id="crawl" data-bs-parent="#main">
+                    <div class="card card-body">
+                        <h3>Crawl informations</h3>
+    
+                        <h5 class="mt-3">Last crawl</h5>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="m-0">Last crawl at : {{$lastActiveCrawl['created_at']}}</p>
+                            <button class="btn btn-primary" id="startCrawl">Start a crawler</button>
+                        </div>
+                        
+
+                        <h5 class="mt-3">Last hyperlinks retrieved</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Hyperlink</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($hyperlinks as $hyperlink)
+                                    <tr>
+                                        <td>{{$hyperlink['hyperlink']}}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td>There is no hyperlinks yet</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+
+                        <h5 class="mt-3">Errors on last crawl</h5>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Error</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($crawlErros as $error)
+                                    <tr>
+                                        <td>{{$error['error']}}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td>There is no error on last crawl</td>
                                     </tr>
                                 @endforelse
                             </tbody>

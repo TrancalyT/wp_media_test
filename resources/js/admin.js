@@ -10,6 +10,7 @@ const tour = document.getElementById('addTour');
 const albums = document.getElementById('addAlbums');
 const deleteButtons = document.querySelectorAll('.delete');
 const editButtons = document.querySelectorAll('.edit');
+const startCrawler = document.getElementById('startCrawl');
 
 // Login and logout management
 document.addEventListener('DOMContentLoaded', function() {
@@ -60,6 +61,25 @@ logout.addEventListener('click', function() {
     setTimeout(function() {
         location.reload(true);
     }, 1000);
+});
+
+// Start a crawler
+startCrawler.addEventListener('click', function() {
+    startCrawler.style.opacity = '0.5';
+    startCrawler.style.cusor = 'wait';
+    startCrawler.style.pointerEvents = 'none';
+
+    axios.get('/admin/crawl')
+    .then(function () {
+        setTimeout(function() {
+            location.reload(true);
+        }, 1000);
+    })
+    .catch(function (error) {
+        console.error('An error occured :', error);
+    });
+
+    
 });
 
 // Listen to add news

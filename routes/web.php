@@ -39,4 +39,4 @@ Route::delete('/delete/tour/{tour}', [TourController::class, 'destroy']);
 Route::delete('/delete/album/{album}', [AlbumsController::class, 'destroy']);
 
 // Crawl
-Route::get('/crawl', [AdminController::class, 'crawl']);
+Route::get('/admin/crawl', [AdminController::class, 'crawl']);
