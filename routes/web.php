@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AlbumsController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +19,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// View (get)
+Route::get('/', [MainController::class, 'index'])->name('main');
+Route::get('/contact', function() {
+    return view('contact');
+})->name('contact');
+Route::get('/videos', function() {
+    return view('videos');
+})->name('videos');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/sitemap', [SitemapController::class, 'index'])->name('sitemap');
+
+// Post
+Route::post('/add/news', [NewsController::class, 'store']);
+Route::post('/add/tour', [TourController::class, 'store']);
+Route::post('/add/album', [AlbumsController::class, 'store']);
+
+// Delete
+Route::delete('/delete/news/{news}', [NewsController::class, 'destroy']);
+Route::delete('/delete/tour/{tour}', [TourController::class, 'destroy']);
+Route::delete('/delete/album/{album}', [AlbumsController::class, 'destroy']);
+
+// Crawl
+Route::get('/admin/crawl', [AdminController::class, 'crawl']);
