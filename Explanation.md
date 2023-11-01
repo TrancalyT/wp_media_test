@@ -14,7 +14,7 @@ Follow these steps to implement the project:
     ```shell
     git checkout master
     ```
-3. Configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration, especially these ones :
+3. Copy .env.example to .env and configure your .env. The crawler will use the URL with the project path, so the APP_NAME variable must have the same name (ie: laragon/www/wp-test-media, my APP_NAME will be wp-test-media). Also remember to modify the environment variables for database configuration, especially these ones :
     ```shell
     APP_NAME
     DB_CONNECTION
@@ -33,6 +33,7 @@ Follow these steps to implement the project:
     npm run dev
     php artisan migrate
     php artisan db:seed:all
+    php artisan key:generate
     ```
 5. You must boot the crontab for the automatic crawling scheduler to work (ie: on Linux) :
     ```shell
@@ -41,6 +42,10 @@ Follow these steps to implement the project:
 6. Add these lines :
     ```shell
     * * * * * php <path_to_project_directory> schedule:run
+    ```
+7. Launch your local server : 
+    ```shell
+    php artisan serv
     ```
 
 # How it works ?
